@@ -1,0 +1,81 @@
+ <div class="content p-1">
+                <div class="list-group-item">
+                    <div class="d-flex">
+                        <div class="mr-auto p-2">
+                            <h2 class="display-4 titulo">Sobre</h2>
+                        </div>
+                        
+                        <div class="p-2">
+                            <span class="d-none d-md-block">
+                                <a href="/sobre/edit-sobre" class="btn btn-outline-warning btn-sm">Editar</a>
+                                <a href="/sobre/edit-sobre-img" class="btn btn-outline-warning btn-sm">Editar Imagem</a>
+                            </span>
+                            <div class="dropdown d-block d-md-none">
+                                <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Ações
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">                                    
+                                    <a class="dropdown-item" href="/sobre/edit-sobre">Editar</a>
+                                    <a href="/sobre/edit-sobre-img" class="btn btn-outline-warning btn-sm">Editar Imagem</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{>_msg}}
+                    <hr>
+                    <dl class="row">
+                        <dt class="col-sm-3">ID</dt>
+                        <dd class="col-sm-9">{{sobre._id}}</dd>
+
+                        <dt class="col-sm-3">Titulo do Topo</dt>
+                        <dd class="col-sm-9">{{sobre.titulotop}} </dd>
+                        
+                        <dt class="col-sm-3">Sub-Titulo do Topo</dt>
+                        <dd class="col-sm-9 mb-4">{{sobre.subtitulotop}} </dd>
+                        
+                        <dt class="col-sm-3 ">Titulo</dt>
+                        <dd class="col-sm-9">{{sobre.titulo}} </dd>
+
+                        <dt class="col-sm-3">Sub-Titulo</dt>
+                        <dd class="col-sm-9 mb-4">{{sobre.subtitulo}} </dd>
+
+                        <dt class="col-sm-3">Icones Sobre Primeiro</dt>
+                        <dd class="col-sm-9">{{sobre.iconesbum}} - <i class="{{sobre.iconesbum}}"></i>  </dd>
+
+                        <dt class="col-sm-3">Titulo Sobre Primeiro</dt>
+                        <dd class="col-sm-9">{{sobre.titulosbum}} </dd>
+
+                        <dt class="col-sm-3">Descrição Sobre Primeiro</dt>
+                        <dd class="col-sm-9 mb-4">{{sobre.descsbum}} </dd>
+
+                        <dt class="col-sm-3">Icones Sobre Segundo</dt>
+                        <dd class="col-sm-9">{{sobre.iconesbdois}} - <i class="{{sobre.iconesbdois}}"></i> </dd>
+
+                        <dt class="col-sm-3">Titulo Sobre Segundo</dt>
+                        <dd class="col-sm-9">{{sobre.titulosbdois}} </dd>
+
+                        <dt class="col-sm-3">Descrição Sobre Segundo</dt>
+                        <dd class="col-sm-9 mb-4">{{sobre.descsbdois}} </dd>
+
+                        <dt class="col-sm-3">Icones Sobre Terceiro</dt>
+                        <dd class="col-sm-9">{{sobre.iconesbtreis}} - <i class="{{sobre.iconesbtreis}}"></i> </dd>
+
+                        <dt class="col-sm-3">Titulo Sobre Terceiro</dt>
+                        <dd class="col-sm-9">{{sobre.titulosbtreis}} </dd>
+
+                        <dt class="col-sm-3">Descrição Sobre Terceiro</dt>
+                        <dd class="col-sm-9 mb-4">{{sobre.descsbtreis}} </dd>
+
+                        <dt class="col-sm-3">Titulo do Botão</dt>
+                        <dd class="col-sm-9">{{sobre.titulobtn}} </dd>
+
+                        <dt class="col-sm-3">Url do Botão</dt>
+                        <dd class="col-sm-9">{{sobre.urlbtn}} </dd>
+
+                        <dt class="col-sm-3">Imagem de Fundo</dt>
+                        <dd class="col-sm-9"><img class="img-fluid ml-3" style="width: 55%;" src="/images/topo_home/home-top1.jpg"> </dd>
+                       
+
+                    </dl>
+                </div>
+            </div>

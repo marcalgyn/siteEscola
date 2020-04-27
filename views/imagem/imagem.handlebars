@@ -1,0 +1,107 @@
+<!-- Inserir uma galeria de Imagens de serviços -->
+<div class="jumbotron">
+    <div class="container">
+
+        <div class="container gallery-container">
+            <div class="tz-gallery">
+                <div id="principal">
+                    <h3> Galeria</h3>
+                    <ul>
+                        <div class="row">
+                        {{#each imagem}}
+                        
+                        <li class="list-group-item">
+                            <a class="lightbox" href="{{url}}">
+                                <img  src="{{url}}" border="0" alt="{{nome}}" />
+                            </a>
+                        </li>
+                        {{/each}}
+                        </div>
+                    </ul>
+                </div>
+
+<!--
+                {{#each imagem}}
+
+                <div class="row">
+                    <li class="list-group-item">
+                        <div class="col-sm-6 col-md-4">
+                            
+                            <a class="lightbox" href="{{url}}" id="{{_id}}">
+                                <img src="{{url}}" alt="{{nome}}">
+                            </a>
+                            
+                        </div>
+                    </li>
+
+                </div>
+                {{/each}}
+-->
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{{>_rodape}}
+
+<!-- Fim da Galeria -->
+
+<!--
+                
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{{url}}" id="{{_id}}">
+                            <img src="{{url}}" alt="Foto" class="{{nome}}">
+                        </a>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                        <a class="lightbox" href="{{url}}">
+                            <img src="{{url}}" alt="Foto" class="{{nome}}">
+                        </a>
+                    </div>
+
+
+                    <div class="col-sm-12 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="{{url}}">
+                                <img src="{{url}}" alt="Foto" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="{{url}}">
+                                <img src="{{url}}" alt="Foto" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="{{url}}">
+                                <img src="{{url}}" alt="Foto" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="{{url}}">
+                                <img src="{{url}}" alt="Foto" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                    -->

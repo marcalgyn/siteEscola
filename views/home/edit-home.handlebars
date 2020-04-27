@@ -1,0 +1,58 @@
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Editar Topo da Home</h2>
+            </div>
+            <div class="p-2">
+                <span class="d-none d-md-block">
+                    <a href="/vis-home" class="btn btn-outline-primary btn-sm">Visualizar</a>
+                </span>
+                <div class="dropdown d-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ações
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        <a class="dropdown-item" href="/vis-home">Visualizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>_msg}}
+        <hr>
+        <form method="POST" action="/update-home" >
+            <input name="_id" type="hidden" value="{{hometopo._id}}">
+            
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Titulo do Banner:</label>
+                <input name="titulo" type="text" class="form-control" id="titulo" value="{{hometopo.titulo}}" placeholder="Titulo do Banner" required >
+            </div>
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Sub-Titulo do Banner:</label>
+                <input name="subtitulo" type="text" class="form-control" id="subtitulo"
+                    placeholder="Sub-Titulo Banner" value="{{hometopo.subtitulo}}" required>
+            </div>
+
+            
+           
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo do Botão:</label>
+                    <input name="titulobtn" type="text" class="form-control" id="titulobtn" value="{{hometopo.titulobtn}}" placeholder="Titulo do Botão" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Url do Botão:</label>
+                    <input name="urlbtn" type="text" class="form-control" id="urlbtn" value="{{hometopo.urlbtn}}" placeholder="Link do Botão" required>
+                </div>
+            </div>
+            <p>
+                <span class="text-danger">* </span>Campo obrigatório
+                
+            </p>
+            <button type="submit" class="btn btn-warning">Salvar</button>
+        </form>
+    </div>
+</div>

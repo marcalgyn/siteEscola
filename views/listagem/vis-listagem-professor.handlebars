@@ -1,0 +1,30 @@
+<!-- Inserir uma galeria de Imagens de serviços -->
+<div class="">
+    <div class="">
+        <div class="container gallery-container">
+            <div class="tz-gallery">
+                <div id="principal">
+                    <h3> Tarefas Realizadas</h3>
+                    <ul>
+                        <div class="row">
+                        {{#each listagem}}
+                        
+                        <li class="list-group-item">
+                            <a class="lightbox" href="{{url}}">
+                                <img  src="{{url}}" border="0" alt="{{conteudo}}" />
+                            </a>
+                            <a>{{materia}}</a>
+                            <br/>
+                            <a>{{conteudo}}</a>
+                            <br/>
+                            <a> Incluido: {{moment updateAt 'DD/MM/YYYY'}}</a>
+                        </li>
+                        {{/each}}
+                        </div>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

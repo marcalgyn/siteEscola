@@ -1,0 +1,144 @@
+body {
+    padding-top: 0.0rem;
+    
+}
+
+nav {
+    background-color: #FFF; 
+    line-height: 1.6 !important;
+    
+}
+
+nav ul li.menu a {
+    font-size: 1.5rem !important;
+    color: #0c0018 !important;
+    
+}
+
+nav ul li.menu a:hover {
+    color: #e2dede !important;
+}
+
+.logo {
+    width: 200px;
+    height: 70px;
+    margin-right: 35px;
+}
+
+
+
+.descr-top {
+    background-image: url("/images/topo_home/home-top.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0rem;
+    margin-bottom: 0rem;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    color: #FFF;
+}
+
+.conf-banner {
+   background-position: center ;
+   max-height: 400px; 
+   min-height: 400px; 
+  
+   
+}
+
+
+.servicos {
+    background-color: #f9faff;
+    border-radius: 0rem;
+    margin-bottom: 0rem;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.video {
+    background-image: url("/images/video_home/fundo-video.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0rem;
+    margin-bottom: 0rem;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #FFF;
+}
+
+.exp-home {
+    background-color: #f9faff;
+    border-radius: 0rem;
+    margin-bottom: 0rem;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.exp-home-titulo {
+    color: #313451;
+}
+
+.rodape {
+    background-color: #FFF;
+    color: #150029 !important;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.rodape ul li a.link-rodape {
+    color: #150029 !important;
+}
+
+.rodape ul li a.link-rodape:hover {
+    color: #adaeaf !important;
+    text-decoration: none;
+}
+
+.sobre {
+    background-color: #f9faff;
+    border-radius: 0rem;
+    margin-bottom: 0rem;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.descr-top-sobre {
+    background-image: url("/images/top-sobre/descr-top-sobre.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0rem;
+    margin-bottom: 0rem;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: #FFF;
+}
+
+.sobre-titulo {
+    color: #e61239;
+    
+}
+
+.contato {
+    background-color: #F9FAFF;
+    border-radius: 0rem;
+    margin-bottom: 0rem;
+}
+
+#principal li {
+    display:inline;
+    float:left;
+    width:200px;
+    background-color:#f5f7f9;
+    padding:0px;
+    margin:15px;
+    text-align: center;
+    border-right: #a5a7aa solid 0px;
+    border-bottom: #a5a7aa solid 0px;
+ }
+
+ .cartao {
+    color: #e2dede;
+ }

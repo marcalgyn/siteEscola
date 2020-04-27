@@ -1,0 +1,62 @@
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Cadastro de Materia</h2>
+            </div>
+            <div class="p-2">
+                <span class="d-none d-md-block">
+                    <a href="/materia/list-materia" class="btn btn-outline-primary btn-sm">Listar</a>
+                </span>
+                <div class="dropdown d-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ações
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        <a class="dropdown-item" href="materia/list-materia">Listar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>_msg}}
+        <hr>
+        <form method="POST" action="/materia/insert-cad-materia">
+            <input name="_id" type="hidden" value="{{materias._id}}">
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <div class="form-group">
+                        <label><span class="text-danger">*</span> Nome da Materia:</label>
+                        <input name="nome" type="text" class="form-control" id="nome" value="{{materias.nome}}"
+                            placeholder="Nome" required>
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <div class="form-group">
+                        <label><span class="text-danger">*</span> Professor:</label>
+                        <input name="professor" type="text" class="form-control" id="professor"
+                            value="{{materias.professor}}" placeholder="Nome Professor" required>
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <label><span class="text-danger">*</span> Cor Painel Principal:</label>
+                    <select name="cor" class="custom-select">
+                        <option value="bg-primary">Azul</option>
+                        <option value="bg-secondary">Cinza</option>
+                        <option value="bg-success">Vende</option>
+                        <option value="bg-danger">Vermelho</option>
+                        <option value="bg-warning">Amarelo</option>
+                        <option value="bg-info">Azul-Claro</option>
+                        <option value="bg-light">Branco</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <p>
+                <span class="text-danger">* </span>Campo obrigatório
+            </p>
+            <button type="submit" class="btn btn-warning">Salvar</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,173 @@
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Editar Rodapé</h2>
+            </div>
+            <div class="p-2">
+                <span class="d-none d-md-block">
+                    <a href="/rodape/vis-rodape" class="btn btn-outline-primary btn-sm">Visualizar</a>
+                </span>
+                <div class="dropdown d-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ações
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        <a class="dropdown-item" href="/rodape/vis-rodape">Visualizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>_msg}}
+        <hr>
+        <form method="POST" action="/rodape/update-rodape">
+            <input name="_id" type="hidden" value="{{rodape._id}}">
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Titulo das Paginas:</label>
+                <input name="titulopg" type="text" class="form-control" id="titulopg" value="{{rodape.titulopg}}"
+                    placeholder="Titulo das Paginas" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo Pagina 1:</label>
+                    <input name="titulopgum" type="text" class="form-control" id="titulopgum"
+                        value="{{rodape.titulopgum}}" placeholder="Titulo da pagina 1" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> URL Pagina 1:</label>
+                    <input name="urlpgum" type="text" class="form-control" id="urlpgum"
+                        value="{{rodape.urlpgum}}" placeholder="URL Pagina 1" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo Pagina 2:</label>
+                    <input name="titulopgdois" type="text" class="form-control" id="titulopgdois"
+                        value="{{rodape.titulopgdois}}" placeholder="Titulo da pagina 2" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> URL Pagina 2:</label>
+                    <input name="urlpgdois" type="text" class="form-control" id="urlpgdois"
+                        value="{{rodape.urlpgdois}}" placeholder="URL Pagina 2" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo Pagina 3:</label>
+                    <input name="titulopgtreis" type="text" class="form-control" id="titulopgtreis"
+                        value="{{rodape.titulopgtreis}}" placeholder="Titulo da pagina 3" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> URL Pagina 3:</label>
+                    <input name="urlpgtreis" type="text" class="form-control" id="urlpgtreis"
+                        value="{{rodape.urlpgtreis}}" placeholder="URL Pagina 3" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo Endereço:</label>
+                    <input name="tituloend" type="text" class="form-control" id="tituloend"
+                        value="{{rodape.tituloend}}" placeholder="Titulo do Endereço Comercial/Residencial" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Endereço:</label>
+                    <input name="endereco" type="text" class="form-control" id="endereco"
+                        value="{{rodape.endereco}}" placeholder="Endereço" required>
+                </div>
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Telefone:</label>
+                    <input name="telefone" type="text" class="form-control" id="telefone"
+                        value="{{rodape.telefone}}" placeholder="Telefone" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> CNPJ:</label>
+                    <input name="cnpj" type="text" class="form-control" id="cnpj"
+                        value="{{rodape.cnpj}}" placeholder="Cnpj" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                    <label><span class="text-danger ">*</span> Titulo Rede Social:</label>
+                    <input name="tituloredsoc" type="text" class="form-control" id="tituloredsoc" rowns="3"
+                        value="{{rodape.tituloredsoc}}" placeholder="Titulo de Rede Social" required>
+            </div>
+            
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo Rede Social Um:</label>
+                    <input name="titulorsum" type="text" class="form-control" id="titulorsum"
+                        value="{{rodape.titulorsum}}" placeholder="Titulo de Rede Social" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> URL Rede Social 1:</label>
+                    <input name="urlrdum" type="text" class="form-control" id="urlrdum"
+                        value="{{rodape.urlrdum}}" placeholder="Url Rede Social" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo Rede Social 2:</label>
+                    <input name="titulorsdois" type="text" class="form-control" id="titulorsdois"
+                        value="{{rodape.titulorsdois}}" placeholder="Titulo de Rede Social" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> URL Rede Social 2:</label>
+                    <input name="urlrddois" type="text" class="form-control" id="urlrddois"
+                        value="{{rodape.urlrddois}}" placeholder="Url Rede Social" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo Rede Social 3:</label>
+                    <input name="titulorstreis" type="text" class="form-control" id="titulorstreis"
+                        value="{{rodape.titulorstreis}}" placeholder="Titulo de Rede Social" >
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> URL Rede Social 3:</label>
+                    <input name="urlrdtreis" type="text" class="form-control" id="urlrdtreis"
+                        value="{{rodape.urlrstreis}}" placeholder="Url Rede Social" >
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo Rede Social 4:</label>
+                    <input name="titulorsquatro" type="text" class="form-control" id="titulorsquatro"
+                        value="{{rodape.titulorsquatro}}" placeholder="Titulo de Rede Social" >
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> URL Rede Social 4:</label>
+                    <input name="urlrdquatro" type="text" class="form-control" id="urlrdquatro"
+                        value="{{rodape.urlrdquatro}}" placeholder="Url Rede Social" >
+                </div>
+            </div>
+            <p>
+                <span class="text-danger">* </span>Campo obrigatório
+            </p>
+
+            <button type="submit" class="btn btn-warning">Salvar</button>
+        </form>
+    </div>
+</div>

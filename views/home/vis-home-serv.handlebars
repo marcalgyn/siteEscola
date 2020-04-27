@@ -1,0 +1,63 @@
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Conteudo do Seriço na Página Inicial</h2>
+            </div>
+
+            <div class="p-2">
+                <span class="d-none d-md-block">
+                    <a href="/edit-home-serv" class="btn btn-outline-warning btn-sm">Editar</a>
+                </span>
+                <div class="dropdown d-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ações
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        <a class="dropdown-item" href="/edit-home-serv">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>_msg}}
+        <hr>
+        <dl class="row">
+            <dt class="col-sm-3">ID:</dt>
+            <dd class="col-sm-9">{{servico._id}}</dd>
+
+            <dt class="col-sm-3">Titulo:</dt>
+            <dd class="col-sm-9">{{servico.titulo}} </dd>
+
+            <dt class="col-sm-3">Icone 1:</dt>
+            <dd class="col-sm-9 mb-4">{{servico.iconeservum}} - <i class="{{servico.iconeservum}}"></i> </dd>
+
+            <dt class="col-sm-3">Titulo 1:</dt>
+            <dd class="col-sm-9">{{servico.tituloservum}}</dd>
+
+            <dt class="col-sm-3">Descrição 1:</dt>
+            <dd class="col-sm-9">{{servico.descservum}} </dd>
+
+
+            <dt class="col-sm-3">Icone 2:</dt>
+            <dd class="col-sm-9 mb-4">{{servico.iconeservdois}} - <i class="{{servico.iconeservdois}}"></i> </dd>
+
+            <dt class="col-sm-3">Titulo 2:</dt>
+            <dd class="col-sm-9">{{servico.tituloservdois}}</dd>
+
+            <dt class="col-sm-3">Descrição 2:</dt>
+            <dd class="col-sm-9">{{servico.descservdois}} </dd>
+
+
+            <dt class="col-sm-3">Icone 3:</dt>
+            <dd class="col-sm-9 mb-4">{{servico.iconeservtres}} - <i class="{{servico.iconeservtres}}"></i> </dd>
+
+            <dt class="col-sm-3">Titulo 3:</dt>
+            <dd class="col-sm-9">{{servico.tituloservtres}}</dd>
+
+            <dt class="col-sm-3">Descrição 3:</dt>
+            <dd class="col-sm-9">{{servico.descservtres}} </dd>
+
+        </dl>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Editar Serviços da Home</h2>
+            </div>
+            <div class="p-2">
+                <span class="d-none d-md-block">
+                    <a href="/vis-home-exp" class="btn btn-outline-primary btn-sm">Visualizar</a>
+                </span>
+                <div class="dropdown d-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ações
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        <a class="dropdown-item" href="/vis-home-exp">Visualizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>_msg}}
+        <hr>
+        <form method="POST" action="/update-home-exp">
+            <input name="_id" type="hidden" value="{{experiencia._id}}">
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Titulo:</label>
+                <input name="titulo" type="text" class="form-control" id="titulo" value="{{experiencia.titulo}}"
+                    placeholder="Titulo" required>
+            </div>
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Descrição:</label>
+                <textarea name="subtitulo" class="form-control" id="subtitulo" rows="5"
+                    placeholder="Subtitulo">{{experiencia.subtitulo}} </textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo 1:</label>
+                    <input name="tituloexpum" type="text" class="form-control" id="tituloexpum"
+                        value="{{experiencia.tituloexpum}}" placeholder="Titulo do Icone 1" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Icone 1:</label>
+                    <input name="iconeexpum" type="text" class="form-control" id="iconeexpum"
+                        value="{{experiencia.iconeexpum}}" placeholder="Seletor do Icone 1" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Descrição 1:</label>
+                <textarea name="descexpum" type="text" class="form-control" id="descexpum" rows="3"
+                    placeholder="Descrição do Icone 1" required>{{experiencia.descexpum}} </textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo 2:</label>
+                    <input name="tituloexpdois" type="text" class="form-control" id="tituloexpdois"
+                        value="{{experiencia.tituloexpdois}}" placeholder="Titulo do Icone2" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Icone 2:</label>
+                    <input name="iconeexpdois" type="text" class="form-control" id="iconeexpdois"
+                        value="{{experiencia.iconeexpdois}}" placeholder="Seletor do Icone 2" required>
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label><span class="text-danger">*</span> Descrição 2:</label>
+                <textarea name="descexpdois" type="text" class="form-control" id="descexpdois" rows="3"
+                    placeholder="Descrição do Icone 2" required>{{experiencia.descexpdois}} </textarea>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo 3:</label>
+                    <input name="tituloexptres" type="text" class="form-control" id="tituloexptres"
+                        value="{{experiencia.tituloexptres}}" placeholder="Titulo do Experiencia 3" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Icone 3:</label>
+                    <input name="iconeexptres" type="text" class="form-control" id="iconeexptres"
+                        value="{{experiencia.iconeexptres}}" placeholder="Seletor do Icone 3" required>
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label><span class="text-danger">*</span> Descrição 3:</label>
+                <textarea name="descexptres" type="text" class="form-control" id="descexptres" rows="3"
+                    placeholder="Descrição do Icone 3" required>{{experiencia.descexptres}} </textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo do Botão:</label>
+                    <input name="titulobtn" type="text" class="form-control" id="titulobtn" value="{{experiencia.titulobtn}}" placeholder="Titulo do Botão" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Url do Botão:</label>
+                    <input name="urlbtn" type="text" class="form-control" id="urlbtn" value="{{experiencia.urlbtn}}" placeholder="Link do Botão" required>
+                </div>
+            </div>
+
+
+            <p>
+                <span class="text-danger">* </span>Campo obrigatório
+            </p>
+
+            <button type="submit" class="btn btn-warning">Salvar</button>
+        </form>
+    </div>
+</div>

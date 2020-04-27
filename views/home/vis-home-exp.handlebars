@@ -1,0 +1,70 @@
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Conteudo da Experiencia na Pagina HOME</h2>
+            </div>
+
+            <div class="p-2">
+                <span class="d-none d-md-block">
+                    <a href="/edit-home-exp" class="btn btn-outline-warning btn-sm">Editar</a>
+                </span>
+                <div class="dropdown d-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ações
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        <a class="dropdown-item" href="/edit-home-exp">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>_msg}}
+        <hr>
+        <dl class="row">
+            <dt class="col-sm-3">ID:</dt>
+            <dd class="col-sm-9">{{experiencia._id}}</dd>
+
+            <dt class="col-sm-3">Titulo:</dt>
+            <dd class="col-sm-9">{{experiencia.titulo}} </dd>
+
+            <dt class="col-sm-3">SubTitutlo:</dt>
+            <dd class="col-sm-9 mb-4">{{experiencia.subtitulo}} </dd>
+
+            <dt class="col-sm-3">Icone 1:</dt>
+            <dd class="col-sm-9">{{experiencia.iconeexpum}} - <i class="{{experiencia.iconeexpum}}"></i> </dd>
+
+            <dt class="col-sm-3">Titulo 1:</dt>
+            <dd class="col-sm-9">{{experiencia.tituloexpum}} </dd>
+
+            <dt class="col-sm-3">Descricao 1:</dt>
+            <dd class="col-sm-9 mb-4">{{experiencia.descexpum}}</dd>
+
+            <dt class="col-sm-3">Icone 2:</dt>
+            <dd class="col-sm-9">{{experiencia.iconeexpdois}} - <i class="{{experiencia.iconeexpdois}}"></i> </dd>
+
+            <dt class="col-sm-3">Titulo 2:</dt>
+            <dd class="col-sm-9">{{experiencia.tituloexpdois}} </dd>
+
+            <dt class="col-sm-3">Descricao 2:</dt>
+            <dd class="col-sm-9 mb-4">{{experiencia.descexpdois}}</dd>
+
+            <dt class="col-sm-3">Icone 3:</dt>
+            <dd class="col-sm-9">{{experiencia.iconeexptres}} - <i class="{{experiencia.iconeexptres}}"></i> </dd>
+
+            <dt class="col-sm-3">Titulo 3:</dt>
+            <dd class="col-sm-9">{{experiencia.tituloexptres}} </dd>
+
+            <dt class="col-sm-3">Descricao 3:</dt>
+            <dd class="col-sm-9 mb-4">{{experiencia.descexptres}}</dd>
+
+            <dt class="col-sm-3">Link do Botão: </dt>
+            <dd class="col-sm-9 mb-4">{{experiencia.urlbtn}}</dd>
+
+            <dt class="col-sm-3">Botão</dt>
+            <dd class="col-sm-9"><a href="{{experiencia.urlbtn}}" class="btn btn-outline-danger">{{experiencia.titulobtn}} </a> </dd>
+
+        </dl>
+    </div>
+</div>

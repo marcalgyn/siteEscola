@@ -1,0 +1,112 @@
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Editar Contato de Informação</h2>
+            </div>
+            <div class="p-2">
+                <span class="d-none d-md-block">
+                    <a href="/contato-info/vis-contato-info" class="btn btn-outline-primary btn-sm">Visualizar</a>
+                </span>
+                <div class="dropdown d-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ações
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        <a class="dropdown-item" href="/contato-info/vis-contato-info">Visualizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>_msg}}
+        <hr>
+        <form method="POST" action="/contato-info/update-contato-info">
+            <input name="_id" type="hidden" value="{{contatoinfo._id}}">
+            
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Titulo:</label>
+                <input name="titulo" type="text" class="form-control" id="titulo" value="{{contatoinfo.titulo}}"
+                    placeholder="Titulor" required>
+            </div>
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Sub-Titulo:</label>
+                <input name="subtitulo" type="text" class="form-control" id="subtitulo" placeholder="Sub-Titulo"
+                    value="{{contatoinfo.subtitulo}}" required>
+            </div>
+
+            <div class="form-group ">
+                <label><span class="text-danger">*</span> Titulo do Formulario:</label>
+                <input name="tituloform" type="text" class="form-control" id="tituloform"
+                    value="{{contatoinfo.tituloform}}" placeholder="Titulo do formulario" required>
+            </div>
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Titulo Horário de Atendimento:</label>
+                <input name="titulohratend" type="text" class="form-control" id="titulohratend"
+                    value="{{contatoinfo.titulohratend}}" placeholder="Titulo Horario de Atendimento" required>
+
+            </div>
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Hoarario de Atendimento:</label>
+                <input name="hratend" type="text" class="form-control" id="hratend"
+                    value="{{contatoinfo.hratend}}" placeholder="Horario de Atendimento" required>
+
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">*</span> Titulo do Endereço:</label>
+                    <input name="tituloend" type="text" class="form-control" id="tituloend"
+                        value="{{contatoinfo.tituloend}}" placeholder="Titulo de Endereço" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Logradouro:</label>
+                    <input name="logradouro" type="text" class="form-control" id="logradouro"
+                        value="{{contatoinfo.logradouro}}" placeholder="Logradouro" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Bairro:</label>
+                <input name="bairro" type="text" class="form-control" id="bairro" value="{{contatoinfo.bairro}}"
+                    placeholder="Bairro" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">*</span> Complemento:</label>
+                    <input name="complemento" type="text" class="form-control" id="complemento"
+                        value="{{contatoinfo.complemento}}" placeholder="Complemento" required>
+                </div>
+
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">*</span> Cidade:</label>
+                    <input name="cidade" type="text" class="form-control" id="cidade"
+                        value="{{contatoinfo.cidade}}" placeholder="Cidade" required>
+
+                </div>
+
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">*</span> UF:</label>
+                    <input name="uf" type="text" class="form-control" id="uf"
+                        value="{{contatoinfo.uf}}" placeholder="UF" required>
+
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Telefone:</label>
+                    <input name="telefone" type="text" class="form-control" id="telefone"
+                        value="{{contatoinfo.telefone}}" placeholder="Telefone" required>
+                </div>
+            </div>
+            <p>
+                <span class="text-danger">* </span>Campo obrigatório
+
+            </p>
+            <button type="submit" class="btn btn-warning">Salvar</button>
+        </form>
+    </div>
+</div>

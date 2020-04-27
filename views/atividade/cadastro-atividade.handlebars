@@ -1,0 +1,83 @@
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Cadastro de Atividades</h2>
+            </div>
+            <div class="p-2">
+                <span class="d-none d-md-block">
+                    <a href="/atividade/list-atividade" class="btn btn-outline-primary btn-sm">Listar</a>
+                </span>
+                <div class="dropdown d-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ações
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        <a class="dropdown-item" href="/atividade/list-atividade">Listar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>_msg}}
+        <form method="POST" action="/atividade/insert-cad-atividade">
+            <input name="_id" type="hidden" id="_id" value="{{atividade._id}}">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <div class=="row">
+                        <label for="materia">Materia</label>
+
+                        <select name="idMateria" id="idMateria" class="custom-select">
+                            <!-- input name='materia' id='materia' type="hidden" value="{{materia.nome}}" -->
+                            {{#each materia}}
+                            <option value="{{_id}}">{{nome}}</option>
+                            {{else}}
+                            <option value="0">Nehuma Materia cadastrada</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Nome</label>
+                    <input name="nome" required type="text" class="form-control" placeholder="Nome"
+                        value="{{atividade.nome}}">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Data Atividade:</label>
+                    <input name="dataAtividade" id="dataAtividade" required type="date" class="form-control"
+                        value="{{atividade.dataAtividade}}">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Conteudo</label>
+                    <input name="conteudo" required type="text" class="form-control" placeholder="Conteudo da Atividade"
+                        value="{{atividade.conteudo}}">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label>Descrição</label>
+                    <input name="descricao" required type="text" class="form-control" placeholder="Descrição da Atividade"
+                        value="{{atividade.descricao}}">
+                </div>
+
+                <div class="form-group col-md-1">
+                    <label>Pagina Inicial</label>
+                    <input name="paginaInicial" required type="text"
+                        class="form-control" value="{{atividade.paginaInicial}}"></input>
+                </div>
+
+                <div class="form-group col-md-1">
+                    <label>De:</label>
+                    <input name="paginaFinal" required type="text" class="form-control"
+                        value="{{atividade.paginaFinal}}">
+                </div>
+            </div>
+            <!-- Anexar documentos das atividades -->
+            <button type="submit" class="btn btn-danger">Enviar</button>
+            <button type="reset" class="btn btn-secondary">Cancelar</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<form class="form-signin text-center" action="/usuario/signup" method="POST">
+    <img src="/images/perfil.jpeg" alt="Win2Tech" width="72" height="72"  >
+    <h3 class="h3 mb-3 font-weight-normal">Cadastro</h3>
+
+    {{>_msg}}
+
+    <div class="form-group">
+        <input name="nome" type="text" class="form-control" placeholder="Digite seu Nome" required>
+    </div>
+    <div class="form-group">
+        <input name="email" type="email" class="form-control" style="text-transform: lowercase;" placeholder="Digite o E-mail" required>
+    </div>
+    <div class="form-group">
+        <input name="senha" type="password" class="form-control" placeholder="Digite a Senha" required>
+    </div>
+    <div class="form-group">
+        <input name="confirmeSenha" type="password" class="form-control" placeholder="Confirme a Senha" required>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block mb-2" type="submit">Cadastrar</button>
+    <a class="text-center" href="/usuario/login" style="text-decoration: none;">Já tem cadastrado? Acesse o
+        Login!</a>
+</form>

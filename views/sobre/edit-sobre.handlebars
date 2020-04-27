@@ -1,0 +1,128 @@
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Editar Sobre</h2>
+            </div>
+            <div class="p-2">
+                <span class="d-none d-md-block">
+                    <a href="/sobre/vis-sobre" class="btn btn-outline-primary btn-sm">Visualizar</a>
+                </span>
+                <div class="dropdown d-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ações
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        <a class="dropdown-item" href="/sobre/vis-sobre">Visualizar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>_msg}}
+        <hr>
+        <form method="POST" action="/sobre/update-sobre" >
+            <input name="_id" type="hidden" value="{{sobre._id}}">
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Titulo do Banner:</label>
+                <input name="titulotop" type="text" class="form-control" id="titulotop" value="{{sobre.titulotop}}" placeholder="Titulo do Banner" required >
+            </div>
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Sub-Titulo do Banner:</label>
+                <input name="subtitulotop" type="text" class="form-control" id="subtitulotop"
+                    placeholder="Sub-Titulo Banner" value="{{sobre.subtitulotop}}" required>
+            </div>
+
+            <div class="form-group ">
+                <label><span class="text-danger">*</span> Titulo:</label>
+                <input name="titulo" type="text" class="form-control" id="titulo" value="{{sobre.titulo}}" placeholder="Titulo da Empresa" required>
+            </div>
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Sub-Titulo:</label>
+                <textarea name="subtitulo" class="form-control" id="subtitulo"
+                    rows="5" placeholder="Sub-Titulo da Pagina Sobre" required>{{sobre.subtitulo}} </textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">*</span> Icone Sobre - Primeiro:</label>
+                    <input name="iconesbum" type="text" class="form-control" id="iconesbum"
+                       value="{{sobre.iconesbum}}" placeholder="Primeiro Icone Sobre Empresa" required>
+                    <p><span class="text-danger"> </span>V-5.10 Fonte https://fontawesome.com</p>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Titulo - Primeiro:</label>
+                    <input name="titulosbum" type="text" class="form-control" id="titulosbum"
+                       value="{{sobre.titulosbum}}" placeholder="Titulo Primeira posição" required>
+                </div>
+            </div>
+                <div class="form-group">
+                    <label><span class="text-danger">*</span> Descrição - Primeiro:</label>
+                    <textarea name="descsbum" type="text" class="form-control" id="descsbum"
+                    rows="3"  placeholder="Descrição primeira Posição" required>{{sobre.descsbum}} </textarea>
+                </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">*</span> Icone Sobre - Segundo:</label>
+                    <input name="iconesbdois" type="text" class="form-control" id="iconesdois"
+                       value="{{sobre.iconesbdois}}" placeholder="Segundo Icone Sobre Empresa" required>
+                    <p><span class="text-danger"> </span>V-5.10 Fonte https://fontawesome.com</p>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Titulo - Segundo:</label>
+                    <input name="titulosbdois" type="text" class="form-control" id="titulosbdois"
+                       value="{{sobre.titulosbdois}}" placeholder="Titulo Segunda posição" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Descrição - Segunda:</label>
+                <textarea name="descsbdois" type="text" class="form-control" id="descsbdois"
+                   rows="3"  placeholder="Descrição Segunda Posição" required>{{sobre.descsbdois}} </textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger">*</span> Icone Sobre - Terceiro:</label>
+                    <input name="iconesbtreis" type="text" class="form-control" id="iconesbtreis"
+                       value="{{sobre.iconesbtreis}}" placeholder="Terceiro Icone Sobre Empresa">
+                    <p><span class="text-danger"> </span>V-5.10 Fonte https://fontawesome.com</p>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Titulo - Terceiro:</label>
+                    <input name="titulosbtreis" type="text" class="form-control" id="titulosbtreis"
+                       value="{{sobre.titulosbtreis}}" placeholder="Titulo Terceira posição" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label><span class="text-danger">*</span> Descrição - Terceiro:</label>
+                <textarea name="descsbtreis" type="text" class="form-control" id="descsbtreis"
+                    rows=3  placeholder="Descrição primeira Posição" required>{{sobre.descsbtreis}} </textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label><span class="text-danger ">*</span> Titulo do Botão:</label>
+                    <input name="titulobtn" type="text" class="form-control" id="titulobtn" value="{{sobre.titulobtn}}" placeholder="Titulo do Botão" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label><span class="text-danger">*</span> Url do Botão:</label>
+                    <input name="urlbtn" type="text" class="form-control" id="urlbtn" value="{{sobre.urlbtn}}" placeholder="Link do Botão" required>
+                </div>
+            </div>
+
+
+            <p>
+                <span class="text-danger">* </span>Campo obrigatório
+                
+            </p>
+            <button type="submit" class="btn btn-warning">Salvar</button>
+        </form>
+    </div>
+</div>

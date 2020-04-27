@@ -1,0 +1,34 @@
+<div class="content p-1">
+    <div class="list-group-item">
+
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                {{#if (eq usuario.tipoUsuario 'A')}}
+                <h2 class="display-4 titulo">Seja Bem Vindo Aluno : {{usuario.nome}}</h2>
+                {{else}}
+                <h2 class="display-4 titulo">Seja Bem Vindo Professor(a): {{usuario.nome}}</h2>
+                {{/if}}
+            </div>
+        </div>
+        {{>_msg}}
+        <hr>
+        <div class="row mb-3">
+            {{#each materia}}
+            <div class="col-lg-3 col-sm-6">
+                <div class="card {{cor}} text-white">
+                    <a href="/listagem/lista/{{_id}}">
+                        <div class="card-body">
+                            <i class="fas fa-book fa-4x"></i>
+                            <h6 class="cartao  card-title">{{nome}}</h6>
+                        </div>
+                    </a>
+                    <a class="btn btn-outline-primary btn-sm" href={{url}} target="_blank">Baixar Aquivo</a>
+                </div>
+                <br>
+            </div>
+            
+            {{/each}}
+            
+        </div>
+    </div>
+</div>

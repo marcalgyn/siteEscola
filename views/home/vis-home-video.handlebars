@@ -1,0 +1,52 @@
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Conteudo do Video da pagina Inicial:</h2>
+            </div>
+
+            <div class="p-2">
+                <span class="d-none d-md-block">
+                    <a href="/edit-home-video" class="btn btn-outline-warning btn-sm">Editar</a>
+                    <a href="/edit-home-video-img" class="btn btn-outline-warning btn-sm">Editar Imagem</a>
+                </span>
+                <div class="dropdown d-block d-md-none">
+                    <button class="btn btn-primary dropdown-toggle btn-sm" type="button" id="acoesListar"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Ações
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
+                        <a class="dropdown-item" href="/edit-home-video">Editar</a>
+                        <a href="/edit-home-video-img" class="btn btn-outline-warning btn-sm">Editar Imagem</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>_msg}}
+        <hr>
+        <dl class="row">
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9">{{video._id}}</dd>
+
+            <dt class="col-sm-3">Titulo</dt>
+            <dd class="col-sm-9">{{video.titulo}} </dd>
+
+            <dt class="col-sm-3">SubTitulo</dt>
+            <dd class="col-sm-9 mb-4">{{video.subtitulo}} </dd>
+
+            <dt class="col-sm-3">Imagem de Fundo</dt>
+            <dd class="col-sm-9">
+                <img class="img-fluid" style="width: 55%;" src="/images/video_home/fundo-video.jpg">
+            </dd>
+            
+            <dt class="col-sm-3">Video</dt>
+            <dd class="col-sm-9">
+                <div class="embed-responsive embed-responsive-16by9 ">
+                {{{video.urlvideo}}}
+                </div>
+            </dd>
+
+            
+        </dl>
+    </div>
+</div>
