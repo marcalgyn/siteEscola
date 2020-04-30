@@ -23,9 +23,6 @@ router.get("/", (req, res) => {
 
     let idAtividade = req.query.id;
 
-    console.log(req.query.id);
-    console.log(req.params.id);
-
     Listagem.find({}).then((listagem) => {
         Atividade.findOne().sort({ field: 'asc', _id: -1 }).then((atividade) => {
             let materia = atividade.materia;
@@ -33,8 +30,6 @@ router.get("/", (req, res) => {
             let idAtividade = atividade._id;
             let nomeProfessor = atividade.nomeProfessor;
             let paginas = atividade.paginaInicial + '/' + atividade.paginaFinal;
-
-            console.log("atividade " + atividade)
             res.render("listagem/cad-listagem", { layout: 'adm.handlebars', listagem, atividade, materia, conteudo, idAtividade, nomeProfessor, paginas })
         })
 
@@ -43,14 +38,11 @@ router.get("/", (req, res) => {
     })
 })
 
-router.get("/lista/:id", (req, res) => {
-    console.log(req.params.id);
-
+router.get("/lista/:id", eAdmin, (req, res) => {
+    let usuario = res.locals.user;
     Atividade.find({idMateria: req.params.id}).then((atividade) => {
-            console.log("atividade " + atividade);
             Listagem.find({idAtividade: atividade}).then((listagem) =>{
-                console.log("Listagem " + listagem)
-                res.render("listagem/vis-listagem-professor", { layout: 'adm.handlebars', listagem, atividade })
+                res.render("listagem/vis-listagem-professor", { layout: 'adm.handlebars', listagem, atividade, usuario })
 
             })
         })
@@ -126,6 +118,7 @@ router.get('/list-listagem', (req, res) => {
     Materia.find({}).then((materia) => {
         Atividade.find({}).then((atividade) => {
             Listagem.paginate({}, { page, limit: 10 }).then((listagem) => {
+                
                 res.render("listagem/vis-listagem", { layout: 'adm.handlebars', listagem, atividade, materia, usuario })
             }).catch((erro) => {
                 req.flash("error_msg", "Error: Nenhuma Lista de Tarefa Listada!!")

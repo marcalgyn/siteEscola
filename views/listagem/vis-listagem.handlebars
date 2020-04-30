@@ -33,7 +33,7 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        
                         {{#each listagem.docs}}
                         <tr>
                             <!--<th>{{_id}}</th>-->
@@ -42,14 +42,15 @@
                             <td class="d-lg-table-cell">{{materia}}</td>
                             <td class="d-lg-table-cell">{{paginas}}</td>
                             <td class="d-lg-table-cell">{{moment createdAt 'DD/MM/YYYY'}}</td>
-                            <td class="d-lg-table-cell">
-                             <a href={{url}} target="_blank"><img class="img-fluid ml-3" style="width: 50px;" src="{{url}}"></a>
-                            </td>
-                            {{#if (eq usuario.tipoUsuario 'A')}}
+                            <td class="d-lg-table-cell"><a href={{url}} target="_blank"> <img class="img-fluid ml-3" style="width: 50px;" src="{{url}}"> </a> </td>
+                            
+                            
+                            
                             <td class="text-center">
                                 <span class="d-none d-md-block">
-                                    <a href="/listagem/del-imagem/{{_id}}" class="btn btn-danger btn-sm">Apagar</a>
+                                    <a href="/listagem/del-imagem/{{_id}}" class="btn btn-danger btn-sm">Excluir</a>
                                 </span>
+                                
 
                                 <div class="dropdown d-block d-md-none">
                                     <button class="btn btn-primary dropdown-toggle btn-sm" type="button"
@@ -58,11 +59,12 @@
                                         Ações
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="acoesListar">
-                                        <a class="dropdown-item" href="/listagem/del-imagem/{{_id}}">Apagar</a>
+                                        <a class="dropdown-item" href="/listagem/del-imagem/{{_id}}">Excluir</a>
                                     </div>
                                 </div>
                             </td>
-                            {{/if}}
+                            
+                          
 
                         </tr>
                         {{/each}}

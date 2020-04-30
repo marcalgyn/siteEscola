@@ -15,6 +15,7 @@
                         <!--<th>ID</th>-->
                         <th>Nome</th>
                         <th class="d-none d-sm-table-cell">E-mail</th>
+                        <th class="d-none d-sm-table-cell">Tipo</th>
                         <th class="text-center">Ações</th>
                     </tr>
                 </thead>
@@ -24,6 +25,7 @@
                         <!--<th>{{_id}}</th>-->
                         <td>{{nome}}</td>
                         <td class="d-none d-sm-table-cell">{{email}}</td>
+                        <td class="d-none d-sm-table-cell">{{tipoUsuario}}</td>
                        
                         <td class="text-center">
                             <span class="d-none d-md-block">
@@ -49,10 +51,10 @@
                 <ul class="pagination pagination-sm justify-content-center">
                     {{#if usuarios.hasPrevPage}}
                     <li class="page-item">
-                        <a class="page-link" href="/usuario/list-usuario" tabindex="-1">Primeira</a>
+                        <a class="page-link" href="/usuario/vis-usuario" tabindex="-1">Primeira</a>
                     </li>
                     <li class="page-item"><a class="page-link"
-                            href="/usuario/list-usuario?page={{usuarios.prevPage}}">{{usuarios.prevPage}}</a></li>
+                            href="/usuario/vis-usuario?page={{usuarios.prevPage}}">{{usuarios.prevPage}}</a></li>
                     {{else}}
                     <li class="page-item disabled">
                         <a class="page-link" href="#" tabindex="-1">Primeira</a>
@@ -65,11 +67,11 @@
 
                     {{#if usuarios.hasNextPage}}
                     <li class="page-item ">
-                        <a class="page-link" href="/usuario/list-usuario?page={{usuarios.nextPage}}">{{usuarios.nextPage}}</a>
+                        <a class="page-link" href="/usuario/vis-usuario?page={{usuarios.nextPage}}">{{usuarios.nextPage}}</a>
                     </li>
 
                     <li class="page-item ">
-                        <a class="page-link" href="/usuario/list-usuario?page={{usuarios.totalPages}}">Proxima</a>
+                        <a class="page-link" href="/usuario/vis-usuario?page={{usuarios.totalPages}}">Proxima</a>
                     </li>
                     {{else}}
                     <li class="page-item disabled">

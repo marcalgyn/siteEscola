@@ -13,25 +13,16 @@ module.exports = function (passport) {
             if (!usuario) {
                 return done(null, false, { message: "Cadastro com esses dados não encontrado" })
             } 
-              
-           /* usuario = Object.values(usuario)[0];
-
-            if (usuario.tipoUsuario === "A") {
-                usuario.usuario = true;
-            } else {
-                usuario.usuario = false;
-            }
-*/
-
+  
             bcryptjs.compare(senha, usuario.senha, (erro, correta) => {
                 if (correta) {
+                    console.log("Usuario Logado com sucesso: " + usuario.nome);
                     return done(null, usuario)
                 } else {
                     return done(null, false, { message: "Dados de acesso incorreto." })
                 }
             })
         })
-
 
     }))
 

@@ -9,7 +9,7 @@ echo " Texto: %data% %hora%"
 cd\
 c:\
 cd sitePiloto
-cd win2tech
+cd siteEscola
 git init
 git add *
 git commit -m "update Projeto %data% %hora%" 

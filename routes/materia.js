@@ -13,16 +13,16 @@ const fs = require("fs")
 const { eAdmin } = require("../helpers/eAdmin")
 
 router.get("/", (req, res) => {
-
+    let usuario = res.locals.user;
     Materia.find({}).then((materias) => {
-        res.render("materia/cadastro-materia", { layout: 'adm.handlebars', materias })
+        res.render("materia/cadastro-materia", { layout: 'adm.handlebars', materias, usuario })
     }).catch((erro) => {
         res.send("Nenhuma Informação encontrada!!" + erro)
     })
 })
 
 router.post("/insert-cad-materia", eAdmin, (req, res) => {
-
+    
     var materia = req.body
     var errors = []
 

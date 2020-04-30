@@ -84,7 +84,8 @@ router.post("/insert-cad-usuario", eAdmin, (req, res) => {
                         Usuario.findById(req.body._id).then((usuario) => {
                             usuario.nome = req.body.nome,
                                 usuario.email = req.body.email,
-                                usuario.senha = senha_cript
+                                usuario.senha = senha_cript,
+                                usuario.tipoUsuario = req.body.tipoUsuario
                             usuario.save().then(() => {
                                 req.flash("success_msg", "Cadastro de usuario editado com sucesso")
                                 res.redirect("/usuario/vis-usuario")
@@ -149,7 +150,7 @@ router.post("/signup", (req, res) => {
 router.get("/vis-usuario", eAdmin, (req, res) => {
 
     const { page = 1 } = req.query
-    Usuario.paginate({}, { page, limit: 5 }).then((usuario) => {
+    Usuario.paginate({}, { page, limit: 10 }).then((usuario) => {
         res.render("usuario/vis-usuario", { layout: 'adm.handlebars', usuarios: usuario })
 
     }).catch((erro) => {

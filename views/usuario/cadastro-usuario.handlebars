@@ -5,7 +5,7 @@
                 <h2 class="display-4 titulo">Cadastro de Usuario</h2>
             </div>
             <div class="p-2">
-                <span class="d-none d-md-block">
+                <span class=" d-md-block">
                     <a href="/usuario/vis-usuario" class="btn btn-outline-primary btn-sm">Listar</a>
                 </span>
                 <div class="dropdown d-block d-md-none">
@@ -39,7 +39,7 @@
                     <label><span class="text-danger">*</span> Usuario:</label>
                     <select name="tipoUsuario" class="custom-select">
                             
-                        {{#if (eq usuario.tipoUsuario 'A')}}
+                        {{#if (eq usuarios.tipoUsuario 'A')}}
                         <option value="A">Aluno</option>    
                             <option value="P">Professor</option>
                         {{else}}
