@@ -1,34 +1,25 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 const mongoosePaginate = require("mongoose-paginate-v2")
 const Schema = mongoose.Schema
 
-const Usuario = new Schema({
+
+
+const Contato = new Schema({
     nome: {
         type: String,
         required: true
     },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-
-    senha: {
+    email:{
         type: String,
         required: true
     },
-    tipoUsuario: {
+    assunto: {
         type: String,
-        required: false
+        required: true
     },
-
-    estatus : {
-        type: Boolean,
-        default: false
-    },
-    serie: {
+    mensagem: {
         type: String,
-        required: false
+        required: true
     },
 
     createdAt: {
@@ -43,5 +34,6 @@ const Usuario = new Schema({
 
 })
 
-Usuario.plugin(mongoosePaginate)
-mongoose.model("usuario", Usuario)
+Contato.plugin(mongoosePaginate)
+
+mongoose.model('contato', Contato)

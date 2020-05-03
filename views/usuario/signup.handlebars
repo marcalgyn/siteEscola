@@ -1,6 +1,7 @@
 <form class="form-signin text-center" action="/usuario/signup" method="POST">
-    <img src="/images/perfil.jpeg" alt="Win2Tech" width="72" height="72"  >
-    <h3 class="h3 mb-3 font-weight-normal">Cadastro</h3>
+    <img class="mb-3" src="/images/perfil.jpeg" alt="Login" width="72" height="72">
+    
+    <h3 class="h3 mb-4 font-weight-normal">Cadastro Usuario</h3>
 
     {{>_msg}}
 
@@ -8,7 +9,14 @@
         <input name="nome" type="text" class="form-control" placeholder="Digite seu Nome" required>
     </div>
     <div class="form-group">
-        <input name="email" type="email" class="form-control" style="text-transform: lowercase;" placeholder="Digite o E-mail" required>
+        <input name="email" type="email" class="form-control" style="text-transform: lowercase;"
+            placeholder="Digite o E-mail" required>
+    </div>
+    <div class="form-group" onchange="alerta()">
+        <select name="tipoUsuario" id="tipoUsuario" class="custom-select" required>
+            <option value="A">Aluno(a)</option>
+            <option value="P">Professor(a)</option>
+        </select>
     </div>
     <div class="form-group">
         <input name="senha" type="password" class="form-control" placeholder="Digite a Senha" required>
@@ -20,3 +28,10 @@
     <a class="text-center" href="/usuario/login" style="text-decoration: none;">Já tem cadastrado? Acesse o
         Login!</a>
 </form>
+
+    <script>
+        function alerta(){
+            alert('Professor(a), seu cadastro sera concluido, porem precisará envia uma mensagem para (62) 98626-3010 ou 98556-7314 para ativar o seu cadastro')
+        }
+
+    </script>

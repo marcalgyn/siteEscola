@@ -127,6 +127,7 @@ router.get("/", (req, res) => {
                     nome: "Silvio Marcal",
                     email: "marcalgyn@hotmail.com",
                     tipoUsuario: 'A',
+                    estatus: true,
                     senha: senha_cript
                 }).save().then(() => {
                     res.send("Usuario Cadastrado com sucesso")

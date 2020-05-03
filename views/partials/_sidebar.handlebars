@@ -5,10 +5,10 @@
             <a href="#submenu1" data-toggle="collapse">
                 <i class="fas fa-user"></i> Usuário
             </a>
-            {{#if (eq usuario.tipoUsuario 'A')}}
+            {{#if (eq usuario.email 'marcalgyn@hotmail.com')}}
             <ul id="submenu1" class="list-unstyled collapse">
                 <li><a href="/usuario/cadastro-usuario"><i class="fas fa-users"></i> Usuários</a></li>
-                <li><a href="#"><i class="fas fa-key"></i> Nível de Acesso</a></li>
+                <li><a href="/materia"><i class="fas fa-briefcase"></i> Matérias</a></li>
             </ul>
             {{/if}}
         </li>
@@ -16,10 +16,10 @@
             <a href="#submenu2" data-toggle="collapse"><i class="fas fa-list-ul"></i> Menu</a>
             <ul id="submenu2" class="list-unstyled collapse">
                 {{#if (eq usuario.tipoUsuario 'A')}}
-                <li><a href="/materia"><i class="fas fa-briefcase"></i> Matérias</a></li>
                 <li><a href="/atividade"><i class="fa fa-graduation-cap"></i> Atividades</a></li>
                 <li><a href="/listagem/list-listagem"><i class="fa fa-paperclip"></i> Tarefas Anexadas</a></li>
                 {{else}}
+                <li><a href="/materia"><i class="fas fa-briefcase"></i> Matérias</a></li>
                 <li><a href="/listagem/list-listagem"><i class="fa fa-paperclip"></i> Tarefas Anexadas</a></li>
                 {{/if}}
             </ul>

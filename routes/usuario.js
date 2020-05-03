@@ -40,12 +40,31 @@ router.get('/cadastro-usuario', eAdmin, (req, res) => {
 router.get('/edit-usuario/:id', eAdmin, (req, res) => {
     let usuarios = res.locals.user;
 
-    Usuario.findById(req.params.id).then((usuario) =>{
+    Usuario.findById(req.params.id).then((usuario) => {
         res.render('usuario/cadastro-usuario', { layout: "adm.handlebars", usuarios, usuario })
     })
-    
+
 })
 
+router.post("/atualiza-status/:id", eAdmin, (req, res) => {
+
+    Usuario.findById(req.params.id).then((usuario) => {
+        if (req.body.estatus == 'false') {
+            usuario.estatus = 'true'
+        } else {
+            usuario.estatus = 'false'
+        }
+        
+        usuario.save().then(() => {
+            req.flash("success_msg", "Cadastro de usuario editado com sucesso")
+            res.redirect("/usuario/vis-usuario")
+
+        }).catch((erro) => {
+            req.flash("error_msg", "Não foi encontrado nenhum registro!")
+            res.redirect("/usuario")
+        })
+    })
+})
 
 router.post("/insert-cad-usuario", eAdmin, (req, res) => {
 
@@ -71,12 +90,14 @@ router.post("/insert-cad-usuario", eAdmin, (req, res) => {
                             nome: req.body.nome,
                             email: req.body.email,
                             tipoUsuario: req.body.tipoUsuario,
-                            senha: senha_cript
+                            senha: senha_cript,
+                            estatus: req.body.estatus,
+                            serie: req.body.serie
                         }).save().then(() => {
                             req.flash("success_msg", "Usuario Cadastrado com sucesso")
                             res.redirect("/usuario/vis-usuario")
                         }).catch((erro) => {
-                            req.flash("error_msg", "O Sobre Não foi editado com sucesso")
+                            req.flash("error_msg", "O Usuario Não foi Cadastrado com sucesso")
                             res.redirect("/usuario/edit-usuario")
                         })
                     } else {
@@ -86,6 +107,8 @@ router.post("/insert-cad-usuario", eAdmin, (req, res) => {
                                 usuario.email = req.body.email,
                                 usuario.senha = senha_cript,
                                 usuario.tipoUsuario = req.body.tipoUsuario
+                            usuario.estatus = req.body.estatus,
+                                usuario.serie = req.body.serie
                             usuario.save().then(() => {
                                 req.flash("success_msg", "Cadastro de usuario editado com sucesso")
                                 res.redirect("/usuario/vis-usuario")
@@ -115,8 +138,15 @@ router.post("/signup", (req, res) => {
         return;
     }
 
-    const nome = req.body.nome;
-    const email = req.body.email;
+    let nome = req.body.nome;
+    let email = req.body.email;
+    let tipoUsuario = req.body.tipoUsuario;
+    let estatus = true;
+
+    if (tipoUsuario === 'P') {
+        estatus = false
+    }
+
     //const senha = encryptPassword(req.body.senha);
 
     bcryptjs.genSalt(10, (erro, salt) => {
@@ -129,13 +159,25 @@ router.post("/signup", (req, res) => {
                     nome: nome,
                     email: email,
                     senha: senha_cript,
-                    tipoUsuario: 'P'
+                    estatus: estatus,
+                    tipoUsuario: tipoUsuario
                 }).save().then(() => {
-                    req.flash("success_msg", "Usuario Cadastrado com sucesso")
-                    res.redirect("/usuario/login")
+                    if (tipoUsuario === 'P') {
+                        req.flash("success_msg", "Professor(a) envie uma mensagem via WhatsApp para (62) 98626-3010 ou 62 98556-7314 para liberar o seu acesso colpeto.")
+                        res.redirect("/usuario/login")
+                    } else {
+                        req.flash("success_msg", "Usuario Cadastrado com sucesso")
+                        res.redirect("/usuario/login")
+                    }
                 }).catch((erro) => {
-                    req.flash("error_msg", "O Usuario Não cadastrado com sucesso")
-                    res.redirect("/usuario/signup")
+                    if (erro.code === 11000) {
+                        req.flash("error_msg", "E-mail já existente no sistema")
+                        res.redirect("/usuario/signup")
+                    } else {
+                        req.flash("error_msg", "Cadastro não realizado, motivo: " + erro)
+                        res.redirect("/usuario/signup")
+                    }
+
                 })
 
             }
@@ -148,7 +190,7 @@ router.post("/signup", (req, res) => {
 
 
 router.get("/vis-usuario", eAdmin, (req, res) => {
-let usuario = res.locals.user;
+    let usuario = res.locals.user;
 
     const { page = 1 } = req.query
     Usuario.paginate({}, { page, limit: 10 }).then((usuarios) => {

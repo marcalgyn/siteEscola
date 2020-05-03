@@ -40,13 +40,34 @@ router.get("/lista/:id", eAdmin, (req, res) => {
     let usuario = res.locals.user;
     console.log(usuario);
 
-    Atividade.find({idMateria: req.params.id, idUsuario : usuario._id }).then((atividade) => {
-            Listagem.find({idAtividade : atividade}).then((listagem) =>{
+    //Valida se e o professor ou o Aluno
+    if (usuario.tipoUsuario == 'A') {
+        Atividade.find({ idMateria: req.params.id, idUsuario: usuario._id }).then((atividade) => {
+            Listagem.find({ idAtividade: atividade }).then((listagem) => {
                 console.log(listagem)
                 res.render("listagem/vis-listagem-professor", { layout: 'adm.handlebars', listagem, atividade, usuario })
 
             })
+        }).catch((erro) => {
+            req.flash("error_msg", "Error: Nenhum Conteudo Listado!!")
+            res.redirect("/dashboard/")
+
         })
+    } else {
+
+        Atividade.find({ idMateria: req.params.id }).then((atividade) => {
+            Listagem.find({ idAtividade: atividade }).then((listagem) => {
+                res.render("listagem/vis-listagem-professor", { layout: 'adm.handlebars', listagem, atividade, usuario })
+            }).catch((erro) => {
+                req.flash("error_msg", "Error: Nenhuma Atividade Inserida!!")
+                res.redirect("/dashboard/")
+            })
+        }).catch((erro) => {
+            req.flash("error_msg", "Error: Nenhum Conteudo Listado!!")
+            res.redirect("/dashboard/")
+        })
+
+    }
 
 })
 
@@ -114,21 +135,70 @@ router.post("/add-imagem", eAdmin, (req, res, next) => {
 
 router.get('/list-listagem', (req, res) => {
     let usuario = res.locals.user;
-    
+
     const { page = 1 } = req.query;
-    usuario = Object.values(usuario)[0];
+    //usuario = Object.values(usuario)[0];
 
     Materia.find({}).then((materia) => {
-        Atividade.find({idUsuario: usuario._id}).then((atividade) => {
-            Listagem.paginate({idAtividade: atividade}, { page, limit: 10 }).then((listagem) => {
-                
-                res.render("listagem/vis-listagem", { layout: 'adm.handlebars', listagem, atividade, materia, usuario })
+        if (usuario.tipoUsuario == 'A') {
+            Atividade.find({ idUsuario: usuario._id }).then((atividade) => {
+                Listagem.paginate({ idAtividade: atividade }, { page, limit: 10 }).then((listagem) => {
+                    res.render("listagem/vis-listagem", { layout: 'adm.handlebars', listagem, atividade, materia, usuario })
+                }).catch((erro) => {
+                    req.flash("error_msg", "Error: Nenhuma Lista de Tarefa Listada!!")
+                })
+
+            }).catch((erro) => {
+                req.flash("error_msg", "Error: Nenhuma Atividade Listada!!")
+            })
+
+        } else {
+
+            Atividade.find().then((atividade) => {
+                let ativa = atividade
+                Listagem.paginate({ idAtividade: atividade }, { page, limit: 10 }).then((listagem) => {
+
+                    res.render("listagem/vis-listagem", { layout: 'adm.handlebars', listagem, atividade, materia, usuario })
+                }).catch((erro) => {
+                    req.flash("error_msg", "Error: Nenhuma Lista de Tarefa Listada!!")
+                })
+
+            }).catch((erro) => {
+                req.flash("error_msg", "Error: Nenhuma Atividade Listada!!")
+            })
+        }
+
+
+    }).catch((erro) => {
+        req.flash("error_msg", "Error: Nenhuma Materia Listada!!")
+        res.redirect("/dashboard/")
+    })
+})
+
+router.get('/list-listagem-professor/:id', (req, res) => {
+    let usuario = res.locals.user;
+    let idAluno = req.params.id;
+    const { page = 1 } = req.query;
+    let nomeAluno;
+    //usuario = Object.values(usuario)[0];
+
+    Materia.find({}).then((materia) => {
+        Atividade.find({ idUsuario: idAluno }).then((atividade) => {
+            Listagem.paginate({ idAtividade: atividade }, { page, limit: 10 }).then((listagem) => {
+    
+                nomeAluno = Object.values(atividade)[0].nomeUsuario
+                res.render("listagem/vis-listagem", { layout: 'adm.handlebars', listagem, atividade, materia, usuario, nomeAluno })
+    
             }).catch((erro) => {
                 req.flash("error_msg", "Error: Nenhuma Lista de Tarefa Listada!!")
+                res.redirect("/dashboard/")
             })
+    
         }).catch((erro) => {
-            req.flash("error_msg", "Error: Nenhuma Atividade Listada!!")
+            req.flash("error_msg", "Error: Nenhuma Atividade Listada!!" + erro )
+            res.redirect("/dashboard/")
         })
+
     }).catch((erro) => {
         req.flash("error_msg", "Error: Nenhuma Materia Listada!!")
         res.redirect("/dashboard/")

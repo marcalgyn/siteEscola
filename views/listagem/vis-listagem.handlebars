@@ -2,7 +2,7 @@
     <div class="list-group-item">
         <div class="d-flex">
             <div class="mr-auto p-2">
-                <h2 class="display-4 titulo">Lista de Tarefas Anexadas</h2>
+                <h2 class="display-5 sub-titulo">Lista de Tarefas do Aluno {{nomeAluno}}</h2>
             </div>
         </div>
 
@@ -22,35 +22,44 @@
                         <tr>
                             <!--<th>ID</th>-->
                             <th>Professor</th>
+                            
                             <th class="d-sm-table-cell">Conteudo</th>
                             <th class="d-lg-table-cell">Materia</th>
                             <th class="d-lg-table-cell">Paginas</th>
                             <th class="d-sm-table-cell">Data Inclusão</th>
                             <th class="d-sm-table-cell">Foto</th>
                             {{#if (eq usuario.tipoUsuario 'A')}}
-                                <th class="text-center">Ações</th>
+                            <th class="text-center">Ações</th>
                             {{/if}}
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                         {{#each listagem.docs}}
                         <tr>
                             <!--<th>{{_id}}</th>-->
                             <td>{{nomeProfessor}}</td>
+                            
                             <td class="d-sm-table-cell">{{conteudo}}</td>
                             <td class="d-lg-table-cell">{{materia}}</td>
                             <td class="d-lg-table-cell">{{paginas}}</td>
                             <td class="d-lg-table-cell">{{moment createdAt 'DD/MM/YYYY'}}</td>
-                            <td class="d-lg-table-cell"><a href={{url}} target="_blank"> <img class="img-fluid ml-3" style="width: 50px;" src="{{url}}"> </a> </td>
-                            
-                            
-                            
+                            <!--  <td class="d-lg-table-cell"><a href={{url}} target="_blank"> <img class="img-fluid ml-3" style="width: 50px;" src="{{url}}"> </a>  -->
+                            <td class="d-lg-table-cell">
+                                
+                                <div class="tz-gallery">
+                                    <a class="lightbox" href="{{url}}">
+                                        <img class="img-fluid ml-3" style="width: 50px;" src="{{url}}" border="0"
+                                            alt="{{conteudo}}" />
+                                    </a>
+                                </div>
+                                
+                            </td>
                             <td class="text-center">
                                 <span class="d-none d-md-block">
                                     <a href="/listagem/del-imagem/{{_id}}" class="btn btn-danger btn-sm">Excluir</a>
                                 </span>
-                                
+
 
                                 <div class="dropdown d-block d-md-none">
                                     <button class="btn btn-primary dropdown-toggle btn-sm" type="button"
@@ -63,10 +72,11 @@
                                     </div>
                                 </div>
                             </td>
-                            
-                          
+
+
 
                         </tr>
+
                         {{/each}}
                     </tbody>
                 </table>

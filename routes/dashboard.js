@@ -16,12 +16,12 @@ router.get("/", eAdmin, (req, res) => {
     let usuario = res.locals.user;
 //    res.render("dashboard/dashboard", { layout: 'adm.handlebars'})
 
-        Usuarios.count().then((usuarios) =>{
+        Usuarios.find({tipoUsuario: 'A'}).sort({ field: 'asc', nome: 0 }).then((usuarios) =>{
             Materia.find().then((materia) =>{
                 res.render("dashboard/dashboard", { layout: 'adm.handlebars', usuarios, materia, usuario })
             })
             
         })
-00})
+})
 
 module.exports = router

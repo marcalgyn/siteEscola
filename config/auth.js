@@ -16,12 +16,22 @@ module.exports = function (passport) {
   
             bcryptjs.compare(senha, usuario.senha, (erro, correta) => {
                 if (correta) {
-                    console.log("Usuario Logado com sucesso: " + usuario.nome);
-                    return done(null, usuario)
+
+                    if (usuario.estatus == false) {
+                        console.log("Usuario aguardando liberação: " + usuario.nome);
+            //            return done(null, false, {message: "Usuário aguardando liberação de acesso. " + usuario.nome})
+                    } else {
+                        console.log("Usuario Logado com sucesso: " + usuario.nome);
+             //           return done(null, usuario)
+                    }
                 } else {
-                    return done(null, false, { message: "Dados de acesso incorreto." })
+                    console.log(usuario);
+           //         return done(null, false, { message: "Dados de acesso incorreto." })
                 }
             })
+            return done(null, usuario)
+           
+
         })
 
     }))

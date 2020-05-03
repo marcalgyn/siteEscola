@@ -7,6 +7,7 @@ const home = require("./routes/home")
 const materia = require("./routes/materia")
 const atividade = require("./routes/atividade")
 const listagem = require("./routes/listagem")
+const contato = require("./routes/contato")
 
 
 const usuario = require("./routes/usuario")
@@ -87,6 +88,7 @@ app.use("/listagem", listagem)
 app.use("/usuario", usuario)
 app.use("/add_bd", add_bd)
 app.use("/dashboard", dashboard)
+app.use("/contato", contato)
 
 
 const PORT = 8081

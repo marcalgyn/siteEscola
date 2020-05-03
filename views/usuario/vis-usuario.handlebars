@@ -5,6 +5,7 @@
                 <h2 class="display-4 titulo">Listar de Usuario</h2>
             </div>
         </div>
+        {{>_msg}}
         <hr>
         <div class="table-responsive">
             <table class="table table-striped table-hover table-bordered">
@@ -12,18 +13,28 @@
                     <tr>
                         <!--<th>ID</th>-->
                         <th>Nome</th>
+                        <th class="d-none d-sm-table-cell">Serie</th>
                         <th class="d-none d-sm-table-cell">E-mail</th>
-                        <th class="d-none d-sm-table-cell">Tipo</th>
+                        <th class="d-none d-sm-table-cell">Tipo Usuário</th>
+                        <th class="d-none d-sm-table-cell">Status</th>
                         <th class="text-center">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each usuarios.docs}}
                     <tr>
-                        <!--<th>{{_id}}</th>-->
+                        
                         <td>{{nome}}</td>
+                        <td class="d-none d-sm-table-cell">{{serie}}</td>
                         <td class="d-none d-sm-table-cell">{{email}}</td>
                         <td class="d-none d-sm-table-cell">{{tipoUsuario}}</td>
+                        <td class="d-none d-sm-table-cell">
+                            <form method="POST" action="/usuario/atualiza-status/{{_id}}">
+                            <input type="hidden" id="estatus" name="estatus" value="{{estatus}}">
+                                <button type="submit" class="btn btn-warning"> {{estatus}}</button>
+                            </form>
+                            
+                        </td>
                        
                         <td class="text-center">
                             <span class="d-none d-md-block">

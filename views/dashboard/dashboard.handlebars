@@ -1,17 +1,39 @@
 <div class="content p-1">
     <div class="list-group-item">
-
+        {{>_msg}}
         <div class="d-flex">
+
             <div class="mr-auto p-2">
                 {{#if (eq usuario.tipoUsuario 'A')}}
                 <h2 class="display-4 titulo">Seja Bem Vindo Aluno : {{usuario.nome}}</h2>
+
                 {{else}}
-                <h2 class="display-4 titulo">Seja Bem Vindo Professor(a): {{usuario.nome}}</h2>
+                <h2 class="display-4 titulo">Seja Bem Vindo Professor(a) : {{usuario.nome}}</h2>
+
+                <div class="card" style="width: 40rem;">
+                    <div class="form-group col-md-12">
+                        <label for="idAluno">Selecione um Aluno: </label>
+                        <select name="idAluno" id="idAluno" class="custom-select">
+                            {{#each usuarios}}
+                            <option value="{{_id}}">{{nome}} - {{serie}}</option>
+                            {{else}}
+                            <option value="0">Nenhum Usuario Cadastrado</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <a id="acessa" class="btn btn-lg btn-primary btn-block mb-2"
+                            onclick="selecionar(idAluno.selectedIndex)" style="text-decoration: none;">Listar
+                        </a>
+                    </div>
+
+                </div>
+
                 {{/if}}
             </div>
         </div>
-        {{>_msg}}
         <hr>
+        {{#if (eq usuario.tipoUsuario 'A')}}
         <div class="row mb-3">
             {{#each materia}}
             <div class="col-lg-3 col-sm-6">
@@ -22,13 +44,42 @@
                             <h6 class="cartao  card-title">{{nome}}</h6>
                         </div>
                     </a>
-                    
+
                 </div>
                 <br>
             </div>
-            
+
             {{/each}}
-            
         </div>
+        {{/if}}
     </div>
 </div>
+<script>
+
+    function selecionar(i) {
+
+        // pego a option selecionada
+        var opt = document.querySelectorAll("#idAluno option")[i];
+
+        // pego o valor da option
+        var valor = opt.value;
+
+        // pego o texto da option
+        var titulo = opt.textContent;
+
+        // guardo a URL numa variável, já que são todas iguais
+        var local = "/listagem/list-listagem-professor/" + valor;
+
+        window.location.href = local;
+
+        // aqui chamamos as duas divs no nosso html: descricao -->
+
+        // var element1 = document.getElementById("poster");
+        //      var element2 = document.getElementById("titulo");
+
+        // < !--A rotina abaixo, captura só a string após a última barra invertida "/" -- >
+
+        //     element1.innerHTML = "<img src='" + local + valor + ".jpg' width='126' height='90'>";
+        //  element2.innerHTML = "<p>" + titulo + "</p>";
+    }
+</script>
