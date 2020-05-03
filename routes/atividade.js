@@ -28,6 +28,7 @@ router.get("/", (req, res) => {
 })
 
 router.post("/insert-cad-atividade", eAdmin, (req, res) => {
+    let usuario = res.locals.user;
 
     var atividade = req.body
     var errors = []
@@ -52,7 +53,7 @@ router.post("/insert-cad-atividade", eAdmin, (req, res) => {
             res.render("atividade/cadastro-atividade", { layout: 'adm.handlebars', errors: errors, materia })
         })
     } else {
-
+        console.log(usuario);
         if (!req.body._id) {
             Materia.findById(req.body.idMateria).then((materia) => {
                 new Atividade({
@@ -63,8 +64,11 @@ router.post("/insert-cad-atividade", eAdmin, (req, res) => {
                     paginaInicial: req.body.paginaInicial,
                     paginaFinal: req.body.paginaFinal,
                     idMateria: req.body.idMateria,
-                    materia: materia.nome
+                    materia: materia.nome,
+                    idUsuario: res.locals.user._id,
+                    nomeUsuario: res.locals.user.nome
                 }).save().then(() => {
+                    console.log(Atividade);
                     req.flash("success_msg", "Tarefa Cadastrada com sucesso");
                     res.redirect("/listagem/");
                 }).catch((erro) => {
@@ -84,7 +88,9 @@ router.post("/insert-cad-atividade", eAdmin, (req, res) => {
                         atividade.paginaInicial = req.body.paginaInicial,
                         atividade.paginaFinal = req.body.paginaFinal,
                         atividade.idMateria = req.body.idMateria,
-                        atividade.materia = materia.nome
+                        atividade.materia = materia.nome,
+                        atividade.idUsuario = res.locals.user._id,
+                        atividade.nomeUsuario = res.locals.user.nome
                     atividade.save().then(() => {
                         req.flash("success_msg", "Cadastro de Atividade editado com sucesso")
                         res.redirect("/atividade/list-atividade")
@@ -118,9 +124,10 @@ router.get("/list-atividade", eAdmin, (req, res) => {
         console.log("resultado " + c);
     })
     /* fim do exemplo */
+    console.log('Id do usuario ' + res.locals.user.idUsuario);
 
     Materia.find({}).then((materia) => {
-        Atividade.paginate({}, { page, limit: 20 }).then((atividade) => {
+        Atividade.paginate({idUsuario: res.locals.user._id}, { page, limit: 20 }).then((atividade) => {
             res.render("atividade/list-atividade", { layout: "adm.handlebars", atividade, materia })
         }).catch((erro) => {
             req.flash("error_msg", "Error: Nenhuma Materia encontrada!" + erro)

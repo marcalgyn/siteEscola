@@ -1,7 +1,7 @@
 {
-  "name": "site_adm",
+  "name": "escola",
   "version": "1.0.0",
-  "description": "Criar o site e o administrativo",
+  "description": "O site escolar",
   "main": "app.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -31,5 +31,13 @@
     "administrativo"
   ],
   "author": "Silvio Marçal",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcalgyn/siteEscola.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcalgyn/siteEscola/issues"
+  },
+  "homepage": "https://github.com/marcalgyn/siteEscola#readme"
 }

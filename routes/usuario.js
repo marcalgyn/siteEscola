@@ -148,10 +148,11 @@ router.post("/signup", (req, res) => {
 
 
 router.get("/vis-usuario", eAdmin, (req, res) => {
+let usuario = res.locals.user;
 
     const { page = 1 } = req.query
-    Usuario.paginate({}, { page, limit: 10 }).then((usuario) => {
-        res.render("usuario/vis-usuario", { layout: 'adm.handlebars', usuarios: usuario })
+    Usuario.paginate({}, { page, limit: 10 }).then((usuarios) => {
+        res.render("usuario/vis-usuario", { layout: 'adm.handlebars', usuarios, usuario })
 
     }).catch((erro) => {
         req.flash("error_msg", "Error: Nenhum Usuario de contato encontrado!")

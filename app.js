@@ -7,7 +7,7 @@ const home = require("./routes/home")
 const materia = require("./routes/materia")
 const atividade = require("./routes/atividade")
 const listagem = require("./routes/listagem")
-const contato = require("./routes/contato")
+
 
 const usuario = require("./routes/usuario")
 const add_bd = require("./routes/add_bd")
@@ -28,13 +28,7 @@ HandlebarsIntl.registerWith(Handlebars);
 //Formatar data
 var helpers = require('handlebars-helpers')();
 
-
-
-
-
 require("./config/auth")(passport)
-
-
 
 const path = require("path")
 
@@ -82,7 +76,7 @@ mongoose.connect('mongodb://localhost/bdteste', {
 }).then(() =>{
     console.log("Conexao com banco de dados bdteste realizado com sucesso ;) !!")
 }).catch((erro) => {
-    console.log("Erro Conexao ao banco Celke, NÃO foi realizado com sucesso. " + erro)
+    console.log("Erro Conexao ao banco bdTeste, NÃO foi realizado com sucesso. " + erro)
 })
 
 //Rotas
@@ -93,9 +87,6 @@ app.use("/listagem", listagem)
 app.use("/usuario", usuario)
 app.use("/add_bd", add_bd)
 app.use("/dashboard", dashboard)
-app.use("/contato", contato)
-
-
 
 
 const PORT = 8081

@@ -1,28 +1,8 @@
 //Carregar os modulos
 const express = require("express")
 const router = express.Router()
+
 const mongoose = require("mongoose")
-require("../models/HomeTopo")
-const HomeTopo = mongoose.model("hometopos")
-
-require("../models/Servico")
-const Servico = mongoose.model('servicos')
-
-require("../models/Video")
-const Video = mongoose.model('video')
-
-require("../models/Experiencia")
-const Experiencia = mongoose.model('experiencia')
-
-require("../models/Rodape")
-const Rodape = mongoose.model('rodape')
-
-require("../models/Sobre")
-const Sobre = mongoose.model('sobre')
-
-require("../models/ContatoInfo")
-const ContatoInfo = mongoose.model("contatoinfo")
-
 require("../models/Usuario")
 const Usuario = mongoose.model("usuario")
 

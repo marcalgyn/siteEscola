@@ -20,9 +20,7 @@ const { eAdmin } = require("../helpers/eAdmin")
 
 
 router.get("/", (req, res) => {
-
     let idAtividade = req.query.id;
-
     Listagem.find({}).then((listagem) => {
         Atividade.findOne().sort({ field: 'asc', _id: -1 }).then((atividade) => {
             let materia = atividade.materia;
@@ -40,8 +38,11 @@ router.get("/", (req, res) => {
 
 router.get("/lista/:id", eAdmin, (req, res) => {
     let usuario = res.locals.user;
-    Atividade.find({idMateria: req.params.id}).then((atividade) => {
-            Listagem.find({idAtividade: atividade}).then((listagem) =>{
+    console.log(usuario);
+
+    Atividade.find({idMateria: req.params.id, idUsuario : usuario._id }).then((atividade) => {
+            Listagem.find({idAtividade : atividade}).then((listagem) =>{
+                console.log(listagem)
                 res.render("listagem/vis-listagem-professor", { layout: 'adm.handlebars', listagem, atividade, usuario })
 
             })
@@ -115,9 +116,11 @@ router.get('/list-listagem', (req, res) => {
     let usuario = res.locals.user;
     
     const { page = 1 } = req.query;
+    usuario = Object.values(usuario)[0];
+
     Materia.find({}).then((materia) => {
-        Atividade.find({}).then((atividade) => {
-            Listagem.paginate({}, { page, limit: 10 }).then((listagem) => {
+        Atividade.find({idUsuario: usuario._id}).then((atividade) => {
+            Listagem.paginate({idAtividade: atividade}, { page, limit: 10 }).then((listagem) => {
                 
                 res.render("listagem/vis-listagem", { layout: 'adm.handlebars', listagem, atividade, materia, usuario })
             }).catch((erro) => {

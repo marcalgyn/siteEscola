@@ -43,6 +43,16 @@ const Atividade = new Schema({
         required: false
     },
 
+    idUsuario: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Usuario",
+        require: true
+    },
+    nomeUsuario: {
+        type: String,
+        require: false
+    },
+
     createdAt: {
         type: Date,
         default: Date.now()

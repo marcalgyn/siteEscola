@@ -2,45 +2,19 @@
 const express = require("express")
 const router = express.Router()
 const mongoose = require("mongoose")
-require("../models/HomeTopo")
-const HomeTopo = mongoose.model("hometopos")
+
+
 const multer = require("multer")
 const path = require("path")
 const fs = require("fs")
 
-require("../models/Rodape")
-const Rodape = mongoose.model("rodape")
-
-
-require("../models/Servico")
-const Servico = mongoose.model('servicos')
-
-require("../models/Video")
-const Video = mongoose.model('video')
-
-require("../models/Experiencia")
-const Experiencia = mongoose.model('experiencia')
-
 const { eAdmin } = require("../helpers/eAdmin")
 
 router.get("/", (req, res) => {
-    HomeTopo.findOne({}).then((hometopo) => {
 
-        res.render("usuario/login", { layout: 'login.handlebars', hometopo })
+    res.render("usuario/login", { layout: 'login.handlebars' })
 
-    }).catch((erro) => {
-        req.flash("error_msg", "Não foi encontrado nenhum Registro!")
-        console.log("Erro ao cadastrar Topo Cadastrado.")
-    })
-})
 
-router.get("/edit-home", eAdmin, (req, res) => {
-    HomeTopo.findOne({}).then((hometopo) => {
-        res.render("home/edit-home", { layout: "adm.handlebars", hometopo: hometopo })
-    }).catch((erro) => {
-        req.flash("error_msg", "Não foi encontrado nenhum registro Topo da empresa!")
-        res.redirect("/dashboard/")
-    })
 })
 
 

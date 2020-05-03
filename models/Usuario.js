@@ -21,6 +21,11 @@ const Usuario = new Schema({
         required: false
     },
 
+    estatus : {
+        type: Boolean,
+        default: false
+    },
+
     createdAt: {
         type: Date,
         default: Date.now()
