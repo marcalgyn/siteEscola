@@ -19,17 +19,17 @@ module.exports = function (passport) {
 
                     if (usuario.estatus == false) {
                         console.log("Usuario aguardando liberação: " + usuario.nome);
-            //            return done(null, false, {message: "Usuário aguardando liberação de acesso. " + usuario.nome})
+                        return done(null, false, {message: "Usuário aguardando liberação de acesso. " + usuario.nome})
                     } else {
                         console.log("Usuario Logado com sucesso: " + usuario.nome);
-             //           return done(null, usuario)
+                        return done(null, usuario)
                     }
                 } else {
                     console.log(usuario);
-           //         return done(null, false, { message: "Dados de acesso incorreto." })
+                    return done(null, false, { message: "Dados de acesso incorreto." })
                 }
             })
-            return done(null, usuario)
+           // return done(null, usuario)
            
 
         })
