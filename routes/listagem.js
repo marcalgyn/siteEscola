@@ -127,7 +127,6 @@ router.post("/add-imagem", eAdmin, (req, res, next) => {
                 console.log("Arquivo Inserido: " + req.body.idAtividade + '_' + req.files[i].originalname)
             }
 
-
         }
 
     })
